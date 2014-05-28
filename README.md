@@ -9,7 +9,6 @@ Build instructions:
     armeabi-v7a/
       libocs.so
     adboost.jar
-    adience.jar
 </pre>
 2. Copy into the libs folder the jar(s) of the ad network(s) that you want to integrate with. Note that some of them will require you to reference an entire project, such as 'google-play-services_lib' or 'mopub-sdk'.
 3. Edit AndroidManifest.xml: Remove the stuff that's irrelevant to the ad network(s) you're integarting with, and fill in the stuff which is relevant, if there is any (appId, devId, package name etc.)
