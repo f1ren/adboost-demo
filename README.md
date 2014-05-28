@@ -16,5 +16,6 @@ Build instructions:
 6. Go over the activities of the ad networks you want to integrate with, and assign your appId / adId to the relevant constants.
 
 Optional (if using only one ad network):
+
 5. Edit AndroidManifest.xml and move the <intent-filter> from MainActivity to the activity of that ad network.
 6. Edit the java file of that activity and uncomment the code in the onCreate and onDestroy methods.
