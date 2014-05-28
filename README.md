@@ -18,5 +18,5 @@ Build instructions:
 
 Optional (if using only one ad network):
 
-5. Edit AndroidManifest.xml and move the <intent-filter> from MainActivity to the activity of that ad network.
+5. Edit AndroidManifest.xml and move the &lt;intent-filter&gt; element from MainActivity to the activity of that ad network.
 6. Edit the java file of that activity and uncomment the code in the onCreate and onDestroy methods.
