@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">AdBoost Demo</string>
+    <string name="show_interstitial">Show interstitial</string>
+    <string name="interstitial_failed">Interstitial failed loading.</string>
+    <string name="interstitial_failed_code_fmt">Interstitial failed loading with code: %d</string>
+    <string name="interstitial_failed_msg_fmt">Interstitial failed loading with message: %s</string>
+    <string name="interstitial_loading">Interstitial isn\'t loaded yet. Try again in a few seconds.</string>
+    <string name="reloading_interstitial">Trying to reload interstitial.</string>
+</resources>

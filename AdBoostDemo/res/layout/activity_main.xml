@@ -1,0 +1,78 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:adboost="http://www.adience.com/adboost/schema"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".MainActivity" >
+
+        <Button
+            android:id="@+id/adMobInterstitialButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="AdMob"
+            android:onClick="loadAdMob" />
+
+        <Button
+            android:id="@+id/inMobiInterstitialButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="InMobi"
+            android:onClick="loadInMobi" />
+
+        <Button
+            android:id="@+id/millennialInterstitialButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="MMedia"
+            android:onClick="loadMMedia" />
+
+        <Button
+            android:id="@+id/moPubInterstitialButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="MoPub"
+            android:onClick="loadMoPub" />
+
+        <Button
+            android:id="@+id/inneractiveInterstitialButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Inneractive"
+            android:onClick="loadInneractive" />
+
+        <Button
+            android:id="@+id/revMobInterstitialButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="RevMob"
+            android:onClick="loadRevMob" />
+
+        <Button
+            android:id="@+id/startAppInterstitialButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="StartApp"
+            android:onClick="loadStartApp" />
+
+        <Button
+            android:id="@+id/AirPushInterstitialButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="AirPush"
+            android:onClick="loadAirPush" />
+
+        <Button
+            android:id="@+id/LeadBoltInterstitialButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="LeadBolt"
+            android:onClick="loadLeadBolt" />
+
+        </LinearLayout>
+
+</ScrollView>

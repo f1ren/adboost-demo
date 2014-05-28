@@ -1,0 +1,133 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.adience.adboost.demo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <!-- The following are mandatory permissions for the AdBoost SDK. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <!-- The following are permissions that the other ad networks require. Use the minimum required by the ad network of your choice. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+        
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.adience.adboost.demo.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.adience.adboost.demo.AdMobActivity" />
+        <activity android:name="com.adience.adboost.demo.InMobiActivity" />
+        <activity android:name="com.adience.adboost.demo.MMediaActivity" />
+        <activity android:name="com.adience.adboost.demo.MoPubActivity" />
+        <activity android:name="com.adience.adboost.demo.InneractiveActivity" />
+        <activity android:name="com.adience.adboost.demo.RevMobActivity" />
+        <activity android:name="com.adience.adboost.demo.StartAppActivity" />
+        <activity android:name="com.adience.adboost.demo.AirPushActivity" />
+        <activity android:name="com.adience.adboost.demo.LeadBoltActivity" />
+        
+        <!-- InMobi -->
+        <activity android:name="com.inmobi.androidsdk.IMBrowserActivity"
+	        android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+	        android:hardwareAccelerated="true" />
+	    
+        <!-- AdMob -->
+	    <activity android:name="com.google.android.gms.ads.AdActivity"
+	        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+	    
+	    <!-- MMedia -->
+	    <activity android:name="com.millennialmedia.android.MMActivity"
+	        android:theme="@android:style/Theme.Translucent.NoTitleBar" 
+	        android:configChanges="keyboardHidden|orientation|keyboard" />
+	    
+	    <!-- MoPub -->
+	    <activity android:name="com.mopub.mobileads.MoPubActivity" android:configChanges="keyboardHidden|orientation"/>
+	    <activity android:name="com.mopub.mobileads.MraidActivity" android:configChanges="keyboardHidden|orientation"/>
+	    <activity android:name="com.mopub.common.MoPubBrowser" android:configChanges="keyboardHidden|orientation"/>
+	    <activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:configChanges="keyboardHidden|orientation"/>
+	    
+	    <!-- Inneractive -->
+	    <activity android:name="com.inneractive.api.ads.InneractiveFullScreenView"
+	          android:configChanges="orientation|screenSize" />
+        
+ 	    <!-- Google Play Services -->
+	    <meta-data android:name="com.google.android.gms.version"
+	        android:value="@integer/google_play_services_version" />
+	    
+	    <!-- RevMob -->
+        <activity android:name="com.revmob.ads.fullscreen.FullscreenActivity"
+              android:theme="@android:style/Theme.Translucent"
+              android:configChanges="keyboardHidden|orientation">
+        </activity>
+        <meta-data android:name="com.revmob.app.id" android:value="<Your RevMob appId>"/>
+        
+        <!-- AirPush Bundle SDK -->
+        <activity android:exported="false" android:name="<AirPush SDK package name>.AdActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity android:name="<AirPush SDK package name>.VActivity"
+            android:configChanges="orientation|screenSize" android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <service android:name="<AirPush SDK package name>.LService" android:exported="false"/>
+        <receiver android:name="<AirPush SDK package name>.BootReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- AirPush Standard SDK -->
+        <activity android:exported="false" android:name="<AirPush SDK package name>.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity android:name="<AirPush SDK package name>.VDActivity"
+            android:configChanges="orientation|screenSize" android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <!-- AirPush Common Stuff -->
+        <activity android:name="<AirPush SDK package name>.BrowserActivity"
+            android:configChanges="orientation|screenSize" />
+        <meta-data android:name="<AirPush SDK package name>.APPID" android:value="<Your AirPush appId>" />
+        <meta-data android:name="<AirPush SDK package name>.APIKEY" android:value="android*<Your AirPush ApiKey>"/>
+        
+        <!-- StartApp -->
+        <activity android:name="com.startapp.android.publish.AppWallActivity"
+          android:theme="@android:style/Theme.Translucent"
+          android:taskAffinity="<Your own app package name>.AppWall"            
+          android:configChanges="orientation|keyboardHidden" />
+        <activity android:name="com.startapp.android.publish.list3d.List3DActivity"
+          android:taskAffinity="<Your own app package name>.AppWall"
+          android:theme="@android:style/Theme" />
+        <meta-data android:name="com.adience.sdk.startapp.devid" android:value="<Your StartApp devId>"/>
+        <meta-data android:name="com.adience.sdk.startapp.appid" android:value="<Your StartApp appId>"/>
+
+        <!-- LeadBolt -->
+		<service android:name="com.<LeadBolt SDK package name>.ReEngagementService" />
+		<service android:name="com.<LeadBolt SDK package name>.AdBootReceiverService" />
+		<receiver android:name="com.<LeadBolt SDK package name>.ReEngagement" />
+ 
+		<!-- Adience -->
+	    <service
+	        android:name="com.adience.sdk.SdkService"
+            android:process=":adienceservice" />
+	    
+    </application>
+
+</manifest>
