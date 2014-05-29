@@ -11,10 +11,10 @@ import android.widget.Toast;
 
 import java.util.Map;
 
-import com.adience.adboost.AdView;
-import com.adience.adboost.AdView.AdSize;
-import com.adience.adboost.Interstitial;
 import com.adience.adboost.AdNet;
+import com.adience.adboost.AdSize;
+import com.adience.adboost.AdView;
+import com.adience.adboost.Interstitial;
 import com.inmobi.monetization.IMErrorCode;
 import com.inmobi.monetization.IMInterstitial;
 import com.inmobi.monetization.IMInterstitialListener;

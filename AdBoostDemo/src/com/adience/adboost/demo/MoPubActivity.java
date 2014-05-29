@@ -10,7 +10,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 
 import com.adience.adboost.AdView;
-import com.adience.adboost.AdView.AdSize;
+import com.adience.adboost.AdSize;
 import com.adience.adboost.Interstitial;
 import com.adience.adboost.AdNet;
 import com.mopub.mobileads.MoPubErrorCode;
