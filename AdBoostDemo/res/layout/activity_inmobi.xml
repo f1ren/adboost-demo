@@ -22,6 +22,6 @@
         android:layout_centerHorizontal="true"
         adboost:adNetwork="InMobi"
         adboost:adSize="320x50"
-        adboost:appId="cbad0dfa2d5644cc9bd934e575add0fd" />
+        adboost:adId="cbad0dfa2d5644cc9bd934e575add0fd" />
 
 </RelativeLayout>

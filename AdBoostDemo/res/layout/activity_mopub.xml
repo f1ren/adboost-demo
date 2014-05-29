@@ -22,6 +22,6 @@
         android:layout_centerHorizontal="true"
         adboost:adNetwork="MoPub"
         adboost:adSize="320x50"
-        adboost:appId="a351c74618024afc95d5b5973514f9be" />
+        adboost:adId="a351c74618024afc95d5b5973514f9be" />
 
 </RelativeLayout>

@@ -22,6 +22,6 @@
         android:layout_centerHorizontal="true"
         adboost:adNetwork="MMedia"
         adboost:adSize="320x50"
-        adboost:appId="91528" />
+        adboost:adId="91528" />
 
 </RelativeLayout>
