@@ -7,21 +7,22 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
-    <!-- The following are mandatory permissions for the AdBoost SDK. -->
+    <!-- The following is a mandatory permission for the AdBoost SDK. -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     
-    <!-- The following are permissions that the other ad networks require. Use the minimum required by the ad network of your choice. -->
+    <!-- The following are permissions that the other ad networks require. Keep what is required by the ad network of your choice. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    
+    <!-- The following are optional permissions. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
         
     <application
         android:allowBackup="true"
