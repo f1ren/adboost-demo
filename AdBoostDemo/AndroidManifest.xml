@@ -116,8 +116,8 @@
         <activity android:name="com.startapp.android.publish.list3d.List3DActivity"
           android:taskAffinity="<Your own app package name>.AppWall"
           android:theme="@android:style/Theme" />
-        <meta-data android:name="com.adience.sdk.startapp.devid" android:value="<Your StartApp devId>"/>
-        <meta-data android:name="com.adience.sdk.startapp.appid" android:value="<Your StartApp appId>"/>
+        <meta-data android:name="com.adience.adboost.startapp.devid" android:value="<Your StartApp devId>"/>
+        <meta-data android:name="com.adience.adboost.startapp.appid" android:value="<Your StartApp appId>"/>
 
         <!-- LeadBolt -->
 		<service android:name="com.<LeadBolt SDK package name>.ReEngagementService" />
