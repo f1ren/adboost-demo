@@ -17,7 +17,7 @@ import com.inneractive.api.ads.InneractiveInterstitialAdListener;
 
 public class InneractiveActivity extends Activity {
     private static final AdNet MY_AD_NETWORK = AdNet.Inneractive;
-    private static final String MY_AD_NETWORK_ID = "<YOUR INNERACTIVE APP ID>";
+    private String MY_AD_NETWORK_ID;
 
     private AdView bannerFromXml;
     private AdView bannerFromCode;
@@ -28,8 +28,11 @@ public class InneractiveActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         // NOTE: if you are using this code for your main activity, make sure to add the following line:
         // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
+        
+        MY_AD_NETWORK_ID = getString(R.string.inneractiveAppId);
         setContentView(R.layout.activity_inneractive);
         layout = (ViewGroup)findViewById(R.id.layout);
         showBannerFromXml();

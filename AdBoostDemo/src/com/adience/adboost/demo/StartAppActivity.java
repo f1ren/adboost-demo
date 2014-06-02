@@ -9,9 +9,9 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 
+import com.adience.adboost.AdNet;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
-import com.adience.adboost.AdNet;
 import com.startapp.android.publish.Ad;
 import com.startapp.android.publish.AdDisplayListener;
 import com.startapp.android.publish.AdEventListener;
@@ -28,8 +28,10 @@ public class StartAppActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // NOTE: if you are using this code for your main activity, make sure to add the following line:
         // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
+        
         setContentView(R.layout.activity_startapp);
         layout = (ViewGroup)findViewById(R.id.layout);
         showBannerFromXml();

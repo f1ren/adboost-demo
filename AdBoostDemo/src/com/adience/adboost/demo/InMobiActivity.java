@@ -21,7 +21,7 @@ import com.inmobi.monetization.IMInterstitialListener;
 
 public class InMobiActivity extends Activity {
     private static final AdNet MY_AD_NETWORK = AdNet.InMobi;
-    private static final String MY_AD_NETWORK_ID = "<YOUR INMOBI APP ID>";
+    private String MY_AD_NETWORK_ID;
 
     private AdView bannerFromXml;
     private AdView bannerFromCode;
@@ -32,8 +32,11 @@ public class InMobiActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // NOTE: if you are using this code for your main activity, make sure to add the following line:
         // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
+        
+        MY_AD_NETWORK_ID = getString(R.string.inmobiAppId);
         setContentView(R.layout.activity_inmobi);
         layout = (ViewGroup)findViewById(R.id.layout);
         showBannerFromXml();

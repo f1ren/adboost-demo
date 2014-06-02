@@ -19,8 +19,8 @@ import com.mopub.mobileads.MoPubInterstitial.InterstitialAdListener;
 
 public class MoPubActivity extends Activity {
     private static final AdNet MY_AD_NETWORK = AdNet.MoPub;
-    private static final String MY_BANNER_ID = "<YOUR MOPUB BANNER ID>";
-    private static final String MY_INTERSTITIAL_ID = "<YOUR MOPUB INTERSTITIAL ID>";
+    private String MY_BANNER_ID;
+    private String MY_INTERSTITIAL_ID;
 
     private AdView bannerFromXml;
     private AdView bannerFromCode;
@@ -31,8 +31,12 @@ public class MoPubActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         // NOTE: if you are using this code for your main activity, make sure to add the following line:
         // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
+
+        MY_BANNER_ID = getString(R.string.mopubBannerId);
+        MY_INTERSTITIAL_ID = getString(R.string.mopubInterstitialId);
         setContentView(R.layout.activity_mopub);
         layout = (ViewGroup)findViewById(R.id.layout);
         showBannerFromXml();

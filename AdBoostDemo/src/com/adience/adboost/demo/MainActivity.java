@@ -9,12 +9,13 @@ import com.adience.adboost.AdBoost;
 
 public class MainActivity extends Activity {
 
-    protected static final String MY_ADBOOST_ID = "<YOUR ADBOOST ID HERE>";
+    protected String MY_ADBOOST_ID;
     protected static final String TAG = "AdBoost Demo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MY_ADBOOST_ID = getString(R.string.adboostApiKey);
         AdBoost.appStarted(this, MY_ADBOOST_ID);
         setContentView(R.layout.activity_main);
     }

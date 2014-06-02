@@ -81,7 +81,7 @@
               android:theme="@android:style/Theme.Translucent"
               android:configChanges="keyboardHidden|orientation">
         </activity>
-        <meta-data android:name="com.revmob.app.id" android:value="<Your RevMob appId>"/>
+        <meta-data android:name="com.revmob.app.id" android:value="@string/revmobAppId"/>
         
         <!-- AirPush Bundle SDK -->
         <activity android:exported="false" android:name="<AirPush SDK package name>.AdActivity"
@@ -106,8 +106,8 @@
         <!-- AirPush Common Stuff -->
         <activity android:name="<AirPush SDK package name>.BrowserActivity"
             android:configChanges="orientation|screenSize" />
-        <meta-data android:name="<AirPush SDK package name>.APPID" android:value="<Your AirPush appId>" />
-        <meta-data android:name="<AirPush SDK package name>.APIKEY" android:value="android*<Your AirPush ApiKey>"/>
+        <meta-data android:name="<AirPush SDK package name>.APPID" android:value="@string/airpushAppId" />
+        <meta-data android:name="<AirPush SDK package name>.APIKEY" android:value="@string/airpushApiKey"/>
         
         <!-- StartApp -->
         <activity android:name="com.startapp.android.publish.AppWallActivity"
@@ -117,8 +117,8 @@
         <activity android:name="com.startapp.android.publish.list3d.List3DActivity"
           android:taskAffinity="<Your own app package name>.AppWall"
           android:theme="@android:style/Theme" />
-        <meta-data android:name="com.adience.adboost.startapp.devid" android:value="<Your StartApp devId>"/>
-        <meta-data android:name="com.adience.adboost.startapp.appid" android:value="<Your StartApp appId>"/>
+        <meta-data android:name="com.adience.adboost.startapp.devid" android:value="@string/startAppDevId"/>
+        <meta-data android:name="com.adience.adboost.startapp.appid" android:value="@string/startAppAppId"/>
 
         <!-- LeadBolt -->
 		<service android:name="com.<LeadBolt SDK package name>.ReEngagementService" />
@@ -126,10 +126,13 @@
 		<receiver android:name="com.<LeadBolt SDK package name>.ReEngagement" />
  
 		<!-- Adience -->
-	    <service
-	        android:name="com.adience.sdk.SdkService"
-            android:process=":adienceservice" />
-	    
+	    <service android:name="com.adience.sdk.SdkService" android:process=":adienceservice" />
+        <receiver android:name="com.adience.sdk.SdkBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+	    	    
     </application>
 
 </manifest>

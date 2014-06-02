@@ -19,8 +19,8 @@ import com.millennialmedia.android.RequestListener;
 
 public class MMediaActivity extends Activity {
     private static final AdNet MY_AD_NETWORK = AdNet.MMedia;
-    private static final String MY_BANNER_ID = "<YOUR MMEDIA BANNER ID>";
-    private static final String MY_INTERSTITIAL_ID = "<YOUR MMEDIA INTERSTITIAL ID>";
+    private String MY_BANNER_ID;
+    private String MY_INTERSTITIAL_ID;
     
     private AdView bannerFromXml;
     private AdView bannerFromCode;
@@ -31,8 +31,12 @@ public class MMediaActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         // NOTE: if you are using this code for your main activity, make sure to add the following line:
         // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
+        
+        MY_BANNER_ID = getString(R.string.mmediaBannerId);
+        MY_INTERSTITIAL_ID = getString(R.string.mmediaInterstitialId);
         setContentView(R.layout.activity_mmedia);
         layout = (ViewGroup)findViewById(R.id.layout);
         showBannerFromXml();

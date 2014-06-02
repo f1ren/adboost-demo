@@ -17,9 +17,9 @@ import com.google.android.gms.ads.AdListener;
 
 public class AdMobActivity extends Activity {
     private static final AdNet MY_AD_NETWORK = AdNet.AdMob;
-    private static final String MY_TEST_DEVICE_ID = "<YOUR TEST DEVICE ID>";
-    private static final String MY_BANNER_ID = "<YOUR BANNER ID>";
-    private static final String MY_INTERSTITIAL_ID = "<YOUR INTERSTITIAL ID>";
+    private String MY_TEST_DEVICE_ID;
+    private String MY_BANNER_ID;
+    private String MY_INTERSTITIAL_ID;
     
     private AdView bannerFromXml;
     private AdView bannerFromCode;
@@ -32,8 +32,14 @@ public class AdMobActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         // NOTE: if you are using this code for your main activity, make sure to add the following line:
         // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
+        
+        MY_TEST_DEVICE_ID = getString(R.string.admobTestDeviceId);
+        MY_BANNER_ID = getString(R.string.admobBannerId);
+        MY_INTERSTITIAL_ID = getString(R.string.admobInterstitialId);
+
         setContentView(R.layout.activity_admob);
         layout = (ViewGroup)findViewById(R.id.layout);
         showBannerFromXml();
