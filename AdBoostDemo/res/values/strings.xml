@@ -1,10 +1,30 @@
 <resources>
 
     <string name="app_name">AdBoost Demo</string>
+    <string name="admob">AdMob</string>
+    <string name="inmobi">InMobi</string>
+    <string name="mmedia">MMedia</string>
+    <string name="mopub">MoPub</string>
+    <string name="inneractive">Inneractive</string>
+    <string name="revmob">RevMob</string>
+    <string name="startapp">StartApp</string>
+    <string name="airpush">AirPush</string>
+    <string name="leadbolt">LeadBolt</string>
+    <string name="chartboost">Chartboost</string>
+    <string name="dynamic">Dynamic Mediation</string>
+    <string name="change_in_menu">Open menu to change network</string>
     <string name="show_interstitial">Show interstitial</string>
+    <string name="load_interstitial_auto">automatic interstitial</string>
+    <string name="load_interstitial_fullpage">full-page interstitial</string>
+    <string name="load_interstitial_overlay">overlay interstitial</string>
+    <string name="load_interstitial_apps">apps interstitial</string>
+    <string name="load_interstitial_landingpage">landing page interstitial</string>
+    <string name="load_interstitial_video">video interstitial</string>
     <string name="interstitial_failed">Interstitial failed loading.</string>
     <string name="interstitial_failed_code_fmt">Interstitial failed loading with code: %d</string>
     <string name="interstitial_failed_msg_fmt">Interstitial failed loading with message: %s</string>
     <string name="interstitial_loading">Interstitial isn\'t loaded yet. Try again in a few seconds.</string>
     <string name="reloading_interstitial">Trying to reload interstitial.</string>
+    <string name="first_load_interstitial">First load an interstitial.</string>
+
 </resources>

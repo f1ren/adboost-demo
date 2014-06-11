@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.adience.adboost.AdBoost;
 import com.adience.adboost.Interstitial;
 import com.adience.adboost.AdNet;
 import com.vhypskbuxnxbupnm.AdListener;
@@ -23,8 +24,7 @@ public class LeadBoltActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
+        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
         
         MY_BANNER_ID = getString(R.string.leadboltBannerId);
         MY_INTERSTITIAL_ID = getString(R.string.leadboltInterstitialId);
@@ -36,8 +36,7 @@ public class LeadBoltActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appClosed(this);
+        AdBoost.appClosed(this);
         interstitial.destroy();
         banner.destroy();
     }

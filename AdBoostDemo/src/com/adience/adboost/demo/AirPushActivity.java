@@ -3,15 +3,20 @@ package com.adience.adboost.demo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.adience.adboost.AdBoost;
+import com.adience.adboost.AdNet;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
-import com.adience.adboost.AdNet;
+import com.adience.adboost.Interstitial.SubType;
 import com.rfjpqmxwto.ymboaqjqbz187028.AdListener;
 
 public class AirPushActivity extends Activity {
@@ -21,66 +26,88 @@ public class AirPushActivity extends Activity {
     private AdView bannerFromCode;
     private Interstitial interstitial;
     private ViewGroup layout;
-    private boolean interstitialFailed;
+    private RadioGroup interstitialChoice;
+    private ProgressBar progress;
+    private Button showInterstitialButton;
     
     private boolean isTestMode = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
+        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        if(isTestMode) {
+            AdBoost.enableTestMode(MY_AD_NETWORK);
+        }
         setContentView(R.layout.activity_airpush);
         layout = (ViewGroup)findViewById(R.id.layout);
+        interstitialChoice = (RadioGroup)findViewById(R.id.interstitialChoice);
+        progress = (ProgressBar)findViewById(R.id.progress);
+        progress.setVisibility(View.INVISIBLE);
+        showInterstitialButton = (Button)findViewById(R.id.showInterstitialButton);
+        showInterstitialButton.setEnabled(false);
         showBannerFromXml();
         createBannerProgrammatically();
-        loadInterstitial();
+        interstitial = null;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appClosed(this);
+        AdBoost.appClosed(this);
     }
 
     private void showBannerFromXml() {
         bannerFromXml = (AdView)findViewById(R.id.adView);
-        if(isTestMode) {
-            bannerFromXml.enableTestMode(null);
-        }
         bannerFromXml.loadAd();
     }
 
     private void createBannerProgrammatically() {
         bannerFromCode = new AdView(this);
         bannerFromCode.setAdNetwork(MY_AD_NETWORK);
-        if(isTestMode) {
-            bannerFromCode.enableTestMode(null);
-        }
-        LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        float density = getResources().getDisplayMetrics().density;
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams((int)(320 * density), (int)(50 * density));
+        params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
         bannerFromCode.setLayoutParams(params);
-        layout.addView(bannerFromCode);
+        layout.addView(bannerFromCode, 0);
         bannerFromCode.loadAd();
     }
 
     public void showInterstitial(View view) {
-        if(interstitial.isReady()) {
+        if(interstitial == null) {
+            Toast.makeText(this, getText(R.string.first_load_interstitial), Toast.LENGTH_SHORT).show();
+        } else if(interstitial.isReady()) {
             interstitial.show();
         } else {
-            if(interstitialFailed) { 
-                Toast.makeText(this, getText(R.string.reloading_interstitial), Toast.LENGTH_SHORT).show();
-                interstitialFailed = false;
-                interstitial.loadAd();
-            } else {
-                Toast.makeText(this, getText(R.string.interstitial_loading), Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(this, getText(R.string.interstitial_loading), Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void loadInterstitial() {
+    public void loadSmartWall(View view) {
+        loadInterstitial(SubType.AUTOMATIC);
+    }
+    
+    public void loadOverlay(View view) {
+        loadInterstitial(SubType.OVERLAY);
+    }
+    
+    public void loadAppWall(View view) {
+        loadInterstitial(SubType.APPS);
+    }
+    
+    public void loadLandingPage(View view) {
+        loadInterstitial(SubType.LANDING_PAGE);
+    }
+    
+    public void loadFullPage(View view) {
+        loadInterstitial(SubType.FULL_PAGE);
+    }
+    
+    public void loadVideo(View view) {
+        loadInterstitial(SubType.VIDEO);
+    }
+    
+    private void loadInterstitial(SubType subtype) {
         interstitial = new Interstitial(this, MY_AD_NETWORK);
         interstitial.setListener(new AdListener() {
             @Override
@@ -91,9 +118,15 @@ public class AirPushActivity extends Activity {
                         String msg = getString(R.string.interstitial_failed_msg_fmt, error);
                         Toast.makeText(AirPushActivity.this, msg, Toast.LENGTH_LONG).show();
                         Log.w(MainActivity.TAG, msg);
+                        interstitialChoice.clearCheck();
+                        progress.setVisibility(View.INVISIBLE);
                     }
                 });
-                interstitialFailed = true;
+                if(interstitial.isReady()) {
+                    showInterstitialButton.setEnabled(true);
+                } else {
+                    interstitial = null;
+                }
             }
             
             @Override
@@ -108,10 +141,15 @@ public class AirPushActivity extends Activity {
 
             @Override
             public void onAdCached(AdType arg0) {
+                showInterstitialButton.setEnabled(true);
+                progress.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onSmartWallAdClosed() {
+                interstitial = null;
+                showInterstitialButton.setEnabled(false);
+                interstitialChoice.clearCheck();
             }
 
             @Override
@@ -119,8 +157,8 @@ public class AirPushActivity extends Activity {
             }
 
         });
-        interstitialFailed = false;
-        interstitial.loadAd();
+        progress.setVisibility(View.VISIBLE);
+        interstitial.loadAd(subtype);
     }
 
 }

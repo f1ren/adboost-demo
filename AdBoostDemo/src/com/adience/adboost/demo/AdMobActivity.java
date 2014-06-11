@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 
+import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
-import com.adience.adboost.AdSize;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
 import com.google.android.gms.ads.AdListener;
@@ -32,14 +32,16 @@ public class AdMobActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
-        
+
+        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+
         MY_TEST_DEVICE_ID = getString(R.string.admobTestDeviceId);
         MY_BANNER_ID = getString(R.string.admobBannerId);
         MY_INTERSTITIAL_ID = getString(R.string.admobInterstitialId);
-
+        
+        if(isTestMode) {
+            AdBoost.enableTestMode(MY_AD_NETWORK, MY_TEST_DEVICE_ID);
+        }
         setContentView(R.layout.activity_admob);
         layout = (ViewGroup)findViewById(R.id.layout);
         showBannerFromXml();
@@ -50,8 +52,7 @@ public class AdMobActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appClosed(this);
+        AdBoost.appClosed(this);
         bannerFromXml.destroy();
         bannerFromCode.destroy();
         interstitial.destroy();
@@ -73,19 +74,12 @@ public class AdMobActivity extends Activity {
 
     private void showBannerFromXml() {
         bannerFromXml = (AdView)findViewById(R.id.adView);
-        if(isTestMode) {
-            bannerFromXml.enableTestMode(MY_TEST_DEVICE_ID);
-        }
         bannerFromXml.loadAd();
     }
 
     private void createBannerProgrammatically() {
         bannerFromCode = new AdView(this);
         bannerFromCode.setAdNetwork(MY_AD_NETWORK, MY_BANNER_ID);
-        bannerFromCode.setAdSize(AdSize.W320H50);
-        if(isTestMode) {
-            bannerFromCode.enableTestMode(MY_TEST_DEVICE_ID);
-        }
         LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
         params.addRule(RelativeLayout.CENTER_HORIZONTAL);
@@ -110,9 +104,6 @@ public class AdMobActivity extends Activity {
 
     private void loadInterstitial() {
         interstitial = new Interstitial(this, MY_AD_NETWORK, MY_INTERSTITIAL_ID);
-        if(isTestMode) {
-            interstitial.enableTestMode(MY_TEST_DEVICE_ID);
-        }
         interstitial.setListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(final int errorCode) {

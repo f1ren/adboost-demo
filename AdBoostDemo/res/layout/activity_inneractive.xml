@@ -21,7 +21,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         adboost:adNetwork="Inneractive"
-        adboost:adSize="320x50"
         adboost:adId="Adience_onepic_Android" />
 
 </RelativeLayout>

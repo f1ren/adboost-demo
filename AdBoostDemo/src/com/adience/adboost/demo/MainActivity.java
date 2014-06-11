@@ -9,14 +9,12 @@ import com.adience.adboost.AdBoost;
 
 public class MainActivity extends Activity {
 
-    protected String MY_ADBOOST_ID;
     protected static final String TAG = "AdBoost Demo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MY_ADBOOST_ID = getString(R.string.adboostApiKey);
-        AdBoost.appStarted(this, MY_ADBOOST_ID);
+        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
         setContentView(R.layout.activity_main);
     }
 
@@ -65,5 +63,13 @@ public class MainActivity extends Activity {
 
     public void loadLeadBolt(View b) {
         startDemoActivity(LeadBoltActivity.class);
+    }
+    
+    public void loadChartboost(View b) {
+        startDemoActivity(ChartboostActivity.class);
+    }
+    
+    public void loadDynamic(View b) {
+        startDemoActivity(DynamicActivity.class);
     }
 }

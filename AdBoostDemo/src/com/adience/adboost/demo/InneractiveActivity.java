@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 
+import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
-import com.adience.adboost.AdSize;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
 import com.inneractive.api.ads.InneractiveInterstitialAdListener;
@@ -29,8 +29,7 @@ public class InneractiveActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
+        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
         
         MY_AD_NETWORK_ID = getString(R.string.inneractiveAppId);
         setContentView(R.layout.activity_inneractive);
@@ -43,8 +42,7 @@ public class InneractiveActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appClosed(this);
+        AdBoost.appClosed(this);
         bannerFromXml.destroy();
         bannerFromCode.destroy();
     }
@@ -57,7 +55,6 @@ public class InneractiveActivity extends Activity {
     private void createBannerProgrammatically() {
         bannerFromCode = new AdView(this);
         bannerFromCode.setAdNetwork(MY_AD_NETWORK, MY_AD_NETWORK_ID);
-        bannerFromCode.setAdSize(AdSize.W320H50);
         LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
         params.addRule(RelativeLayout.CENTER_HORIZONTAL);

@@ -9,10 +9,10 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 
-import com.adience.adboost.AdView;
-import com.adience.adboost.AdSize;
-import com.adience.adboost.Interstitial;
+import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
+import com.adience.adboost.AdView;
+import com.adience.adboost.Interstitial;
 import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.MoPubInterstitial;
 import com.mopub.mobileads.MoPubInterstitial.InterstitialAdListener;
@@ -32,9 +32,8 @@ public class MoPubActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appStarted(this, MainActivity.MY_ADBOOST_ID);
-
+        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        
         MY_BANNER_ID = getString(R.string.mopubBannerId);
         MY_INTERSTITIAL_ID = getString(R.string.mopubInterstitialId);
         setContentView(R.layout.activity_mopub);
@@ -47,8 +46,7 @@ public class MoPubActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // NOTE: if you are using this code for your main activity, make sure to add the following line:
-        // AdBoost.appClosed(this);
+        AdBoost.appClosed(this);
         bannerFromXml.destroy();
         bannerFromCode.destroy();
         interstitial.destroy();
@@ -62,7 +60,6 @@ public class MoPubActivity extends Activity {
     private void createBannerProgrammatically() {
         bannerFromCode = new AdView(this);
         bannerFromCode.setAdNetwork(MY_AD_NETWORK, MY_BANNER_ID);
-        bannerFromCode.setAdSize(AdSize.W320H50);
         LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
         params.addRule(RelativeLayout.CENTER_HORIZONTAL);

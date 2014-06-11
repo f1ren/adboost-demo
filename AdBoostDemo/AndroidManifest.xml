@@ -38,15 +38,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.adience.adboost.demo.AdMobActivity" />
-        <activity android:name="com.adience.adboost.demo.InMobiActivity" />
-        <activity android:name="com.adience.adboost.demo.MMediaActivity" />
-        <activity android:name="com.adience.adboost.demo.MoPubActivity" />
-        <activity android:name="com.adience.adboost.demo.InneractiveActivity" />
-        <activity android:name="com.adience.adboost.demo.RevMobActivity" />
-        <activity android:name="com.adience.adboost.demo.StartAppActivity" />
-        <activity android:name="com.adience.adboost.demo.AirPushActivity" />
-        <activity android:name="com.adience.adboost.demo.LeadBoltActivity" />
+        <activity android:name="com.adience.adboost.demo.AdMobActivity" android:label="@string/admob" />
+        <activity android:name="com.adience.adboost.demo.InMobiActivity" android:label="@string/inmobi" />
+        <activity android:name="com.adience.adboost.demo.MMediaActivity" android:label="@string/mmedia" />
+        <activity android:name="com.adience.adboost.demo.MoPubActivity" android:label="@string/mopub" />
+        <activity android:name="com.adience.adboost.demo.InneractiveActivity" android:label="@string/inneractive" />
+        <activity android:name="com.adience.adboost.demo.RevMobActivity" android:label="@string/revmob" />
+        <activity android:name="com.adience.adboost.demo.StartAppActivity" android:label="@string/startapp" />
+        <activity android:name="com.adience.adboost.demo.AirPushActivity" android:label="@string/airpush" />
+        <activity android:name="com.adience.adboost.demo.LeadBoltActivity" android:label="@string/leadbolt" />
+        <activity android:name="com.adience.adboost.demo.ChartboostActivity" android:label="@string/chartboost" />
+        <activity android:name="com.adience.adboost.demo.DynamicActivity" android:label="@string/dynamic" />
         
         <!-- InMobi -->
         <activity android:name="com.inmobi.androidsdk.IMBrowserActivity"
@@ -54,29 +56,29 @@
 	        android:hardwareAccelerated="true" />
 	    
         <!-- AdMob -->
-	    <activity android:name="com.google.android.gms.ads.AdActivity"
+        <activity android:name="com.google.android.gms.ads.AdActivity"
 	        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
 	    
-	    <!-- MMedia -->
-	    <activity android:name="com.millennialmedia.android.MMActivity"
+        <!-- MMedia -->
+        <activity android:name="com.millennialmedia.android.MMActivity"
 	        android:theme="@android:style/Theme.Translucent.NoTitleBar" 
 	        android:configChanges="keyboardHidden|orientation|keyboard" />
-	    
-	    <!-- MoPub -->
+
+        <!-- MoPub -->
 	    <activity android:name="com.mopub.mobileads.MoPubActivity" android:configChanges="keyboardHidden|orientation"/>
 	    <activity android:name="com.mopub.mobileads.MraidActivity" android:configChanges="keyboardHidden|orientation"/>
 	    <activity android:name="com.mopub.common.MoPubBrowser" android:configChanges="keyboardHidden|orientation"/>
 	    <activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:configChanges="keyboardHidden|orientation"/>
 	    
-	    <!-- Inneractive -->
+        <!-- Inneractive -->
 	    <activity android:name="com.inneractive.api.ads.InneractiveFullScreenView"
 	          android:configChanges="orientation|screenSize" />
-        
- 	    <!-- Google Play Services -->
-	    <meta-data android:name="com.google.android.gms.version"
-	        android:value="@integer/google_play_services_version" />
 	    
-	    <!-- RevMob -->
+        <!-- Google Play Services -->
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        
+        <!-- RevMob -->
         <activity android:name="com.revmob.ads.fullscreen.FullscreenActivity"
               android:theme="@android:style/Theme.Translucent"
               android:configChanges="keyboardHidden|orientation">
@@ -117,8 +119,6 @@
         <activity android:name="com.startapp.android.publish.list3d.List3DActivity"
           android:taskAffinity="<Your own app package name>.AppWall"
           android:theme="@android:style/Theme" />
-        <meta-data android:name="com.adience.adboost.startapp.devid" android:value="@string/startAppDevId"/>
-        <meta-data android:name="com.adience.adboost.startapp.appid" android:value="@string/startAppAppId"/>
 
         <!-- LeadBolt -->
 		<service android:name="com.<LeadBolt SDK package name>.ReEngagementService" />

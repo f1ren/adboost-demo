@@ -4,9 +4,10 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="fill"
     android:orientation="vertical"
     android:weightSum="2"
-    tools:context=".AirPushActivity" >
+    tools:context=".DynamicActivity" >
 
     <View
         android:layout_width="0dip"
@@ -27,37 +28,43 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadSmartWall"
+                android:onClick="loadAutomatic"
+                android:tag="AUTOMATIC"
                 android:text="@string/load_interstitial_auto" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="loadOverlay"
+                android:tag="OVERLAY"
                 android:text="@string/load_interstitial_overlay" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadAppWall"
+                android:onClick="loadApps"
+                android:tag="APPS"
                 android:text="@string/load_interstitial_apps" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="loadLandingPage"
+                android:tag="LANDING_PAGE"
                 android:text="@string/load_interstitial_landingpage" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="loadFullPage"
+                android:tag="FULL_PAGE"
                 android:text="@string/load_interstitial_fullpage" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="loadVideo"
+                android:tag="VIDEO"
                 android:text="@string/load_interstitial_video" />
         </RadioGroup>
 
@@ -90,9 +97,8 @@
 
     <com.adience.adboost.AdView
         android:id="@+id/adView"
-        android:layout_width="320dip"
+        android:layout_width="match_parent"
         android:layout_height="50dip"
-        android:layout_gravity="bottom|center_horizontal"
-        adboost:adNetwork="AirPush" />
+        android:layout_gravity="bottom|center_horizontal" />
 
 </LinearLayout>

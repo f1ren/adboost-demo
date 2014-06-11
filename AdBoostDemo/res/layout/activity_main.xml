@@ -11,68 +11,71 @@
         tools:context=".MainActivity" >
 
         <Button
-            android:id="@+id/adMobInterstitialButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="AdMob"
+            android:text="@string/dynamic"
+            android:onClick="loadDynamic" />
+        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/admob"
             android:onClick="loadAdMob" />
 
         <Button
-            android:id="@+id/inMobiInterstitialButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="InMobi"
+            android:text="@string/inmobi"
             android:onClick="loadInMobi" />
 
         <Button
-            android:id="@+id/millennialInterstitialButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="MMedia"
+            android:text="@string/mmedia"
             android:onClick="loadMMedia" />
 
         <Button
-            android:id="@+id/moPubInterstitialButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="MoPub"
+            android:text="@string/mopub"
             android:onClick="loadMoPub" />
 
         <Button
-            android:id="@+id/inneractiveInterstitialButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Inneractive"
+            android:text="@string/inneractive"
             android:onClick="loadInneractive" />
 
         <Button
-            android:id="@+id/revMobInterstitialButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="RevMob"
+            android:text="@string/revmob"
             android:onClick="loadRevMob" />
 
         <Button
-            android:id="@+id/startAppInterstitialButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="StartApp"
+            android:text="@string/startapp"
             android:onClick="loadStartApp" />
 
         <Button
-            android:id="@+id/AirPushInterstitialButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="AirPush"
+            android:text="@string/airpush"
             android:onClick="loadAirPush" />
 
         <Button
-            android:id="@+id/LeadBoltInterstitialButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="LeadBolt"
+            android:text="@string/leadbolt"
             android:onClick="loadLeadBolt" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/chartboost"
+            android:onClick="loadChartboost" />
+        
         </LinearLayout>
 
 </ScrollView>
