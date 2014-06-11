@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     
-    <string name="adboostApiKey">TEST</string>
+    <string name="adboostApiKey"></string>
     
-    <string name="airpushApiKey">android*1400430792187028420</string>
-    <string name="airpushAppId">221282</string>
+    <string name="airpushApiKey"></string>
+    <string name="airpushAppId"></string>
     
-    <string name="admobTestDeviceId">17A5F6CBF2E76EFCD762F2716342005E</string>
-    <string name="admobBannerId">ca-app-pub-2646803198346081/8844109857</string>
-    <string name="admobInterstitialId">ca-app-pub-2646803198346081/2285885455</string>
+    <string name="admobTestDeviceId"></string>
+    <string name="admobBannerId"></string>
+    <string name="admobInterstitialId"></string>
     
-    <string name="inmobiAppId">cbad0dfa2d5644cc9bd934e575add0fd</string>
+    <string name="inmobiAppId"></string>
     
-    <string name="inneractiveAppId">Adience_onepic_Android</string>
+    <string name="inneractiveAppId"></string>
     
-    <string name="leadboltBannerId">339173006</string>
-    <string name="leadboltInterstitialId">837328534</string>
+    <string name="leadboltBannerId"></string>
+    <string name="leadboltInterstitialId"></string>
     
-    <string name="mmediaBannerId">91528</string>
-    <string name="mmediaInterstitialId">91785</string>
+    <string name="mmediaBannerId"></string>
+    <string name="mmediaInterstitialId"></string>
     
-    <string name="mopubBannerId">a351c74618024afc95d5b5973514f9be</string>
-    <string name="mopubInterstitialId">14ed8431a8e9429b88622617df905299</string>
+    <string name="mopubBannerId"></string>
+    <string name="mopubInterstitialId"></string>
     
-    <string name="revmobAppId">5379f8790c1951e855f9a053</string>
+    <string name="revmobAppId"></string>
     
-    <string name="startAppDevId">105584850</string>
-    <string name="startAppAppId">205624423</string>
+    <string name="startAppDevId"></string>
+    <string name="startAppAppId"></string>
     
-    <string name="chartboostAppId">538d8eaa89b0bb72ef957658</string>
-    <string name="chartboostAppSignature">059e8a66b799ae1b3946875d4ee8354f2c5d953d</string>
+    <string name="chartboostAppId"></string>
+    <string name="chartboostAppSignature"></string>
     
 </resources>
