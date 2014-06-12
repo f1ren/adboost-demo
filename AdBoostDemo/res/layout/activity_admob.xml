@@ -21,6 +21,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         adboost:adNetwork="AdMob"
-        adboost:adId="ca-app-pub-2646803198346081/8844109857" />
+        adboost:adId="@string/admobBannerId" />
 
 </RelativeLayout>
