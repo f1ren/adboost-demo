@@ -13,6 +13,7 @@ import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
+import com.adience.adboost.demo.utils.LayoutUtils;
 import com.inneractive.api.ads.InneractiveInterstitialAdListener;
 
 public class InneractiveActivity extends Activity {
@@ -33,7 +34,7 @@ public class InneractiveActivity extends Activity {
         
         MY_AD_NETWORK_ID = getString(R.string.inneractiveAppId);
         setContentView(R.layout.activity_inneractive);
-        layout = (ViewGroup)findViewById(R.id.layout);
+        layout = LayoutUtils.getRootLayout(this);
         showBannerFromXml();
         createBannerProgrammatically();
         loadInterstitial();

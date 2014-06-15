@@ -17,6 +17,7 @@ import com.adience.adboost.AdNet;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
 import com.adience.adboost.Interstitial.SubType;
+import com.adience.adboost.demo.utils.LayoutUtils;
 import com.startapp.android.publish.Ad;
 import com.startapp.android.publish.AdDisplayListener;
 import com.startapp.android.publish.AdEventListener;
@@ -42,11 +43,11 @@ public class StartAppActivity extends Activity {
         
         MY_AD_NETWORK_DEVID = getString(R.string.startAppDevId);
         MY_AD_NETWORK_APPID = getString(R.string.startAppAppId);
-        AdBoost.initAdNet(MY_AD_NETWORK, this, MY_AD_NETWORK_DEVID, MY_AD_NETWORK_APPID, false);
+        AdBoost.initAdNet(MY_AD_NETWORK, this, MY_AD_NETWORK_DEVID, MY_AD_NETWORK_APPID);
         setContentView(R.layout.activity_startapp);
-        layout = (ViewGroup)findViewById(R.id.layout);
+        layout = LayoutUtils.getRootLayout(this);
         interstitialChoice = (RadioGroup)findViewById(R.id.interstitialChoice);
-        progress = (ProgressBar)findViewById(R.id.progress);
+        progress = (ProgressBar)findViewById(R.id.progress_bar);
         progress.setVisibility(View.INVISIBLE);
         showInterstitialButton = (Button)findViewById(R.id.showInterstitialButton);
         showInterstitialButton.setEnabled(false);

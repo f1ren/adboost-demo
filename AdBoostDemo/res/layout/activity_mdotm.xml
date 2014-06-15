@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="2"
-    tools:context=".RevMobActivity" >
+    tools:context=".MdotMActivity" >
 
     <View
         android:layout_width="0dip"
@@ -21,20 +21,25 @@
         <RadioGroup
             android:id="@+id/interstitialChoice"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" >
+            android:layout_height="wrap_content" >
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadFullPage"
+                android:onClick="loadAutomatic"
+                android:text="@string/load_interstitial_auto" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="loadFullpage"
                 android:text="@string/load_interstitial_fullpage" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadOverlay"
-                android:text="@string/load_interstitial_overlay" />
+                android:onClick="loadVideo"
+                android:text="@string/load_interstitial_video" />
         </RadioGroup>
 
         <LinearLayout
@@ -47,8 +52,8 @@
                 android:id="@+id/progress_bar"
                 style="@android:style/Widget.ProgressBar.Small"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
 
             <Button
                 android:id="@+id/showInterstitialButton"
@@ -69,6 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        adboost:adNetwork="RevMob" />
+        adboost:adId="@string/mdotmAppId"
+        adboost:adNetwork="MdotM" />
 
 </LinearLayout>

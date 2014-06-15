@@ -13,6 +13,7 @@ import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
+import com.adience.adboost.demo.utils.LayoutUtils;
 import com.google.android.gms.ads.AdListener;
 
 public class AdMobActivity extends Activity {
@@ -43,7 +44,7 @@ public class AdMobActivity extends Activity {
             AdBoost.enableTestMode(MY_AD_NETWORK, MY_TEST_DEVICE_ID);
         }
         setContentView(R.layout.activity_admob);
-        layout = (ViewGroup)findViewById(R.id.layout);
+        layout = LayoutUtils.getRootLayout(this);
         showBannerFromXml();
         createBannerProgrammatically();
         loadInterstitial();

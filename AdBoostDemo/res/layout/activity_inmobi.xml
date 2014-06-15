@@ -1,7 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:adboost="http://www.adience.com/adboost/schema"
-    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -44,7 +43,7 @@
             android:orientation="@string/dynamic_progress_orientation" >
 
             <ProgressBar
-                android:id="@+id/progress"
+                android:id="@+id/progress_bar"
                 style="@android:style/Widget.ProgressBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        adboost:adId="cbad0dfa2d5644cc9bd934e575add0fd"
+        adboost:adId="@string/inmobiAppId"
         adboost:adNetwork="InMobi" />
 
 </LinearLayout>

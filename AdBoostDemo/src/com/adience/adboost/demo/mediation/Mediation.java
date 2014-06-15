@@ -1,4 +1,4 @@
-package com.adience.adboost.demo;
+package com.adience.adboost.demo.mediation;
 
 import android.app.Activity;
 
@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
+import com.adience.adboost.demo.R;
 
 public class Mediation {
     
@@ -79,9 +80,14 @@ public class Mediation {
                 break;
 
             case StartApp:
-                AdBoost.initAdNet(AdNet.StartApp, activity, activity.getString(R.string.startAppDevId), activity.getString(R.string.startAppAppId), false);
+                AdBoost.initAdNet(AdNet.StartApp, activity, activity.getString(R.string.startAppDevId), activity.getString(R.string.startAppAppId));
                 adnetParams = new AdParams(null, null);
                 adnetMediation.put(AdNet.StartApp, adnetParams);
+                break;
+                
+            case MdotM:
+                adnetParams = new AdParams(activity.getString(R.string.mdotmAppId), activity.getString(R.string.mdotmAppId));
+                adnetMediation.put(AdNet.MdotM, adnetParams);
                 break;
             }
         }

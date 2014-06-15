@@ -37,7 +37,7 @@ public class ChartboostActivity extends Activity {
         AdBoost.initAdNet(MY_AD_NETWORK, MY_AD_NETWORK_APP_ID, MY_AD_NETWORK_APP_SIG);
         setContentView(R.layout.activity_chartboost);
         interstitialChoice = (RadioGroup)findViewById(R.id.interstitialChoice);
-        progress = (ProgressBar)findViewById(R.id.progress);
+        progress = (ProgressBar)findViewById(R.id.progress_bar);
         progress.setVisibility(View.INVISIBLE);
         showInterstitialButton = (Button)findViewById(R.id.showInterstitialButton);
         showInterstitialButton.setEnabled(false);

@@ -13,6 +13,7 @@ import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
+import com.adience.adboost.demo.utils.LayoutUtils;
 import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.MoPubInterstitial;
 import com.mopub.mobileads.MoPubInterstitial.InterstitialAdListener;
@@ -37,7 +38,7 @@ public class MoPubActivity extends Activity {
         MY_BANNER_ID = getString(R.string.mopubBannerId);
         MY_INTERSTITIAL_ID = getString(R.string.mopubInterstitialId);
         setContentView(R.layout.activity_mopub);
-        layout = (ViewGroup)findViewById(R.id.layout);
+        layout = LayoutUtils.getRootLayout(this);
         showBannerFromXml();
         createBannerProgrammatically();
         loadInterstitial();

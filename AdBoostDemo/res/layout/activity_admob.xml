@@ -3,8 +3,7 @@
     xmlns:adboost="http://www.adience.com/adboost/schema"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdMobActivity"
-    android:id="@+id/layout" >
+    tools:context=".AdMobActivity" >
 
     <Button
         android:id="@+id/interstitialButton"

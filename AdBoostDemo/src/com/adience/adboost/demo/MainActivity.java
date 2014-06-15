@@ -69,6 +69,10 @@ public class MainActivity extends Activity {
         startDemoActivity(ChartboostActivity.class);
     }
     
+    public void loadMdotM(View b) {
+        startDemoActivity(MdotMActivity.class);
+    }
+    
     public void loadDynamic(View b) {
         startDemoActivity(DynamicActivity.class);
     }

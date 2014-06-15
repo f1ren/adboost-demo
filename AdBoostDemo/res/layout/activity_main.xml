@@ -76,6 +76,12 @@
             android:text="@string/chartboost"
             android:onClick="loadChartboost" />
         
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/mdotm"
+            android:onClick="loadMdotM" />
+        
         </LinearLayout>
 
 </ScrollView>

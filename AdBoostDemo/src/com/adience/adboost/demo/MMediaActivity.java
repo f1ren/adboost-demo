@@ -13,6 +13,7 @@ import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
+import com.adience.adboost.demo.utils.LayoutUtils;
 import com.millennialmedia.android.MMAd;
 import com.millennialmedia.android.MMException;
 import com.millennialmedia.android.RequestListener;
@@ -38,7 +39,7 @@ public class MMediaActivity extends Activity {
         MY_INTERSTITIAL_ID = getString(R.string.mmediaInterstitialId);
         AdBoost.initAdNet(MY_AD_NETWORK, this);
         setContentView(R.layout.activity_mmedia);
-        layout = (ViewGroup)findViewById(R.id.layout);
+        layout = LayoutUtils.getRootLayout(this);
         showBannerFromXml();
         createBannerProgrammatically();
         loadInterstitial();

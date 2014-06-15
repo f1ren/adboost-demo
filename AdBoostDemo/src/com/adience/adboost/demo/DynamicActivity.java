@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +26,9 @@ import com.adience.adboost.DefaultAdListener;
 import com.adience.adboost.IAdListener;
 import com.adience.adboost.Interstitial;
 import com.adience.adboost.Interstitial.SubType;
-import com.adience.adboost.demo.Mediation.AdParams;
+import com.adience.adboost.demo.mediation.Mediation;
+import com.adience.adboost.demo.mediation.Mediation.AdParams;
+import com.adience.adboost.demo.utils.LayoutUtils;
 
 public class DynamicActivity extends Activity {
     private static final String ADNET_STATE_KEY = "AdNet";
@@ -65,10 +66,10 @@ public class DynamicActivity extends Activity {
                 myAdNetwork = AdNet.valueOf(adnetStr);
             }
         }
-        layout = (ViewGroup)findViewById(R.id.layout);
+        layout = LayoutUtils.getRootLayout(this);
         bannerFromXml = (AdView)findViewById(R.id.adView);
         interstitialChoice = (RadioGroup)findViewById(R.id.interstitialChoice);
-        progress = (ProgressBar)findViewById(R.id.progress);
+        progress = (ProgressBar)findViewById(R.id.progress_bar);
         progress.setVisibility(View.INVISIBLE);
         showInterstitialButton = (Button)findViewById(R.id.showInterstitialButton);
         showInterstitialButton.setEnabled(false);
@@ -96,12 +97,16 @@ public class DynamicActivity extends Activity {
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void setTitleCompat(AdNet adnet) {
-        getActionBar().setTitle(adnet.name());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            getActionBar().setTitle(adnet.name());
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void setSubtitleCompat() {
-        getActionBar().setSubtitle(R.string.change_in_menu);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            getActionBar().setSubtitle(R.string.change_in_menu);
+        }
     }
 
     @Override
@@ -112,8 +117,9 @@ public class DynamicActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.dynamic_menu, menu);
+        for(AdNet adnet : MY_AD_NETWORKS) {
+            menu.add(adnet.name());
+        }
         return true;
     }
     

@@ -18,6 +18,7 @@ import com.adience.adboost.AdNet;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
 import com.adience.adboost.Interstitial.SubType;
+import com.adience.adboost.demo.utils.LayoutUtils;
 import com.revmob.RevMobAdsListener;
 
 public class RevMobActivity extends Activity {
@@ -42,9 +43,9 @@ public class RevMobActivity extends Activity {
             AdBoost.enableTestMode(MY_AD_NETWORK);
         }
         setContentView(R.layout.activity_revmob);
-        layout = (ViewGroup)findViewById(R.id.layout);
+        layout = LayoutUtils.getRootLayout(this);
         interstitialChoice = (RadioGroup)findViewById(R.id.interstitialChoice);
-        progress = (ProgressBar)findViewById(R.id.progress);
+        progress = (ProgressBar)findViewById(R.id.progress_bar);
         progress.setVisibility(View.INVISIBLE);
         showInterstitialButton = (Button)findViewById(R.id.showInterstitialButton);
         showInterstitialButton.setEnabled(false);
