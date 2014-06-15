@@ -38,17 +38,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.adience.adboost.demo.AdMobActivity" android:label="@string/admob" />
-        <activity android:name="com.adience.adboost.demo.InMobiActivity" android:label="@string/inmobi" />
-        <activity android:name="com.adience.adboost.demo.MMediaActivity" android:label="@string/mmedia" />
-        <activity android:name="com.adience.adboost.demo.MoPubActivity" android:label="@string/mopub" />
-        <activity android:name="com.adience.adboost.demo.InneractiveActivity" android:label="@string/inneractive" />
-        <activity android:name="com.adience.adboost.demo.RevMobActivity" android:label="@string/revmob" />
-        <activity android:name="com.adience.adboost.demo.StartAppActivity" android:label="@string/startapp" />
-        <activity android:name="com.adience.adboost.demo.AirPushActivity" android:label="@string/airpush" />
-        <activity android:name="com.adience.adboost.demo.LeadBoltActivity" android:label="@string/leadbolt" />
-        <activity android:name="com.adience.adboost.demo.ChartboostActivity" android:label="@string/chartboost" />
-        <activity android:name="com.adience.adboost.demo.DynamicActivity" android:label="@string/dynamic" />
+        <activity android:name=".DynamicActivity" android:label="@string/dynamic" />
+        <activity android:name=".AdMobActivity" android:label="@string/admob" />
+        <activity android:name=".InMobiActivity" android:label="@string/inmobi" />
+        <activity android:name=".MMediaActivity" android:label="@string/mmedia" />
+        <activity android:name=".MoPubActivity" android:label="@string/mopub" />
+        <activity android:name=".InneractiveActivity" android:label="@string/inneractive" />
+        <activity android:name=".RevMobActivity" android:label="@string/revmob" />
+        <activity android:name=".StartAppActivity" android:label="@string/startapp" />
+        <activity android:name=".AirPushActivity" android:label="@string/airpush" />
+        <activity android:name=".LeadBoltActivity" android:label="@string/leadbolt" />
+        <activity android:name=".ChartboostActivity" android:label="@string/chartboost" />
+        <activity android:name=".MdotMActivity" android:label="@string/mdotm" />
         
         <!-- InMobi -->
         <activity android:name="com.inmobi.androidsdk.IMBrowserActivity"
@@ -125,6 +126,13 @@
 		<service android:name="com.<LeadBolt SDK package name>.AdBootReceiverService" />
 		<receiver android:name="com.<LeadBolt SDK package name>.ReEngagement" />
  
+		<!-- MdotM -->
+        <activity
+           android:name="com.mdotm.android.vast.VastInterstitialActivity"
+           android:configChanges="keyboardHidden|orientation"
+           android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="com.mdotm.android.view.MdotMActivity" android:launchMode="singleTop"/>
+		
 		<!-- Adience -->
 	    <service android:name="com.adience.sdk.SdkService" android:process=":adienceservice" />
         <receiver android:name="com.adience.sdk.SdkBootReceiver">
