@@ -31,4 +31,5 @@
     <string name="chartboostAppId"></string>
     <string name="chartboostAppSignature"></string>
     
+    <string name="mdotmAppId"></string>
 </resources>
