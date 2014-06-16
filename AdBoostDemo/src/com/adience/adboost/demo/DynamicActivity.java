@@ -21,6 +21,7 @@ import java.util.Set;
 
 import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
+import com.adience.adboost.AdSize;
 import com.adience.adboost.AdView;
 import com.adience.adboost.DefaultAdListener;
 import com.adience.adboost.IAdListener;
@@ -146,6 +147,7 @@ public class DynamicActivity extends Activity {
             return;
         }
         bannerFromXml.setAdNetwork(adnet, adViewId);
+        bannerFromXml.setAdSize(AdSize.W320H50);
         bannerFromXml.setListener(new IAdListener() {
             
             @Override
@@ -189,6 +191,7 @@ public class DynamicActivity extends Activity {
         }
         bannerFromCode = new AdView(this);
         bannerFromCode.setAdNetwork(adnet, adViewId);
+        bannerFromCode.setAdSize(AdSize.DEFAULT);
         float density = getResources().getDisplayMetrics().density;
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, Math.round(50*density));
         params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;

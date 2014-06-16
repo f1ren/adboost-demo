@@ -17,6 +17,7 @@ import java.util.Map;
 
 import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
+import com.adience.adboost.AdSize;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
 import com.adience.adboost.Interstitial.SubType;
@@ -81,6 +82,7 @@ public class InMobiActivity extends Activity {
     private void createBannerProgrammatically() {
         bannerFromCode = new AdView(this);
         bannerFromCode.setAdNetwork(MY_AD_NETWORK, MY_AD_NETWORK_ID);
+        bannerFromCode.setAdSize(AdSize.W320H50);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
         bannerFromCode.setLayoutParams(params);

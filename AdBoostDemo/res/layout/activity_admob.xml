@@ -20,6 +20,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         adboost:adNetwork="AdMob"
+        adboost:adSize="DEFAULT"
         adboost:adId="@string/admobBannerId" />
 
 </RelativeLayout>

@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
+import com.adience.adboost.AdSize;
 import com.adience.adboost.AdView;
 import com.adience.adboost.Interstitial;
 import com.adience.adboost.demo.utils.LayoutUtils;
@@ -81,6 +82,7 @@ public class AdMobActivity extends Activity {
     private void createBannerProgrammatically() {
         bannerFromCode = new AdView(this);
         bannerFromCode.setAdNetwork(MY_AD_NETWORK, MY_BANNER_ID);
+        bannerFromCode.setAdSize(AdSize.DEFAULT);
         LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
         params.addRule(RelativeLayout.CENTER_HORIZONTAL);

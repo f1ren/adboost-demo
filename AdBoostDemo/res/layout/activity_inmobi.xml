@@ -69,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         adboost:adId="@string/inmobiAppId"
-        adboost:adNetwork="InMobi" />
+        adboost:adNetwork="InMobi"
+        adboost:adSize="320x50" />
 
 </LinearLayout>
