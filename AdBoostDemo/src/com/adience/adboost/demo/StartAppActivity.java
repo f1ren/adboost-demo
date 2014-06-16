@@ -39,7 +39,7 @@ public class StartAppActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         
         MY_AD_NETWORK_DEVID = getString(R.string.startAppDevId);
         MY_AD_NETWORK_APPID = getString(R.string.startAppAppId);

@@ -37,7 +37,7 @@ public class RevMobActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         AdBoost.initAdNet(MY_AD_NETWORK, this);
         if(isTestMode) {
             AdBoost.enableTestMode(MY_AD_NETWORK);

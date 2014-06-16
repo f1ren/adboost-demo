@@ -36,7 +36,7 @@ public class AirPushActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         if(isTestMode) {
             AdBoost.enableTestMode(MY_AD_NETWORK);
         }

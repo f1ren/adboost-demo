@@ -35,7 +35,7 @@ public class AdMobActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
 
         MY_TEST_DEVICE_ID = getString(R.string.admobTestDeviceId);
         MY_BANNER_ID = getString(R.string.admobBannerId);

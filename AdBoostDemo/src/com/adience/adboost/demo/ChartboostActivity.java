@@ -30,7 +30,7 @@ public class ChartboostActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         
         MY_AD_NETWORK_APP_ID = getString(R.string.chartboostAppId);
         MY_AD_NETWORK_APP_SIG = getString(R.string.chartboostAppSignature);

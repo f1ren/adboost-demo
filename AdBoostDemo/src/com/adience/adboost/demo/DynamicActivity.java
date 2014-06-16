@@ -57,7 +57,7 @@ public class DynamicActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         MY_TEST_DEVICE_ID = getString(R.string.admobTestDeviceId);
         setContentView(R.layout.activity_dynamic);
         mediation = new Mediation(this, MY_AD_NETWORKS);

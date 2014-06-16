@@ -42,7 +42,7 @@ public class InMobiActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         
         MY_AD_NETWORK_ID = getString(R.string.inmobiAppId);
         AdBoost.initAdNet(MY_AD_NETWORK, this, MY_AD_NETWORK_ID);

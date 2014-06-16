@@ -33,7 +33,7 @@ public class MoPubActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         
         MY_BANNER_ID = getString(R.string.mopubBannerId);
         MY_INTERSTITIAL_ID = getString(R.string.mopubInterstitialId);

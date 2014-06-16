@@ -24,7 +24,7 @@ public class LeadBoltActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         
         MY_BANNER_ID = getString(R.string.leadboltBannerId);
         MY_INTERSTITIAL_ID = getString(R.string.leadboltInterstitialId);

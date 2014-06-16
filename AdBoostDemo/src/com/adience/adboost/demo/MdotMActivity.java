@@ -41,7 +41,7 @@ public class MdotMActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        AdBoost.appStarted(this, getString(R.string.adboostApiKey));
+        AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         
         MY_AD_NETWORK_ID = getString(R.string.mdotmAppId);
         if(isTestMode) {
