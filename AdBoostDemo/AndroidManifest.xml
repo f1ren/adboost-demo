@@ -94,11 +94,6 @@
             android:configChanges="orientation|screenSize" android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <service android:name="com.rfjpqmxwto.ymboaqjqbz187028.LService" android:exported="false"/>
-        <receiver android:name="com.rfjpqmxwto.ymboaqjqbz187028.BootReceiver" android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
         <!-- AirPush Standard SDK -->
         <activity android:exported="false" android:name="com.rfjpqmxwto.ymboaqjqbz187028.MainActivity"
             android:configChanges="orientation|screenSize"
