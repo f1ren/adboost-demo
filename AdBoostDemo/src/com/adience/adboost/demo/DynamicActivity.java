@@ -2,6 +2,10 @@ package com.adience.adboost.demo;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +27,6 @@ import com.adience.adboost.AdBoost;
 import com.adience.adboost.AdNet;
 import com.adience.adboost.AdSize;
 import com.adience.adboost.AdView;
-import com.adience.adboost.DefaultAdListener;
 import com.adience.adboost.IAdListener;
 import com.adience.adboost.Interstitial;
 import com.adience.adboost.Interstitial.SubType;
@@ -32,9 +35,11 @@ import com.adience.adboost.demo.mediation.Mediation.AdParams;
 import com.adience.adboost.demo.utils.LayoutUtils;
 
 public class DynamicActivity extends Activity {
+    private static final String TAG = "AdBoost Demo";
     private static final String ADNET_STATE_KEY = "AdNet";
 
-    // Replace AdNet.values() with the ad networks you are engaged with:
+    // Replace AdNet.values() with the ad networks you are engaged with.
+    // Make sure to fill-in the respective values in: res/values/adnet_config.xml
     private static final AdNet[] MY_AD_NETWORKS = AdNet.values();
 
     private Mediation mediation;
@@ -57,6 +62,12 @@ public class DynamicActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        if(MY_AD_NETWORKS == null || MY_AD_NETWORKS.length == 0) {
+            noAdNetworks();
+            return;
+        }
+
         AdBoost.appStarted(this, getString(R.string.adboostAppKey));
         MY_TEST_DEVICE_ID = getString(R.string.admobTestDeviceId);
         setContentView(R.layout.activity_dynamic);
@@ -89,11 +100,32 @@ public class DynamicActivity extends Activity {
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         if(myAdNetwork == null) {
-            openOptionsMenu();
-        } else {
+            if(MY_AD_NETWORKS != null && MY_AD_NETWORKS.length > 0) {
+                myAdNetwork = MY_AD_NETWORKS[0];
+            }
+        }
+        if(myAdNetwork != null) {
             selectAdNetwork();
         }
         setSubtitleCompat();
+    }
+
+    private void noAdNetworks() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.no_ad_networks).setNegativeButton(R.string.exit, new OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();                
+            }
+        }).setOnCancelListener(new OnCancelListener() {
+            
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                finish();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -111,13 +143,36 @@ public class DynamicActivity extends Activity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        if(bannerFromXml != null) {
+            bannerFromXml.pause();
+        }
+        if(bannerFromCode != null) {
+            bannerFromCode.pause();
+        }
+    }
+    
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         AdBoost.appClosed(this);
+        if(bannerFromXml != null) {
+            bannerFromXml.destroy();
+        }
+        if(bannerFromCode != null) {
+            bannerFromCode.destroy();
+        }
+        if(interstitial != null) {
+            interstitial.destroy();
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        if(MY_AD_NETWORKS == null) {
+            return false;
+        }
         for(AdNet adnet : MY_AD_NETWORKS) {
             menu.add(adnet.name());
         }
@@ -152,27 +207,27 @@ public class DynamicActivity extends Activity {
             
             @Override
             public void adShown() {
-                Log.i(MainActivity.TAG, "XML AdView adShown");
+                Log.i(TAG, "XML AdView adShown");
             }
             
             @Override
             public void adReceived() {
-                Log.i(MainActivity.TAG, "XML AdView adReceived");
+                Log.i(TAG, "XML AdView adReceived");
             }
             
             @Override
             public void adFailed(Object error) {
-                Log.i(MainActivity.TAG, "XML AdView adFailed: " + error);
+                Log.i(TAG, "XML AdView adFailed: " + error);
             }
             
             @Override
             public void adDismissed() {
-                Log.i(MainActivity.TAG, "XML AdView adDismissed");
+                Log.i(TAG, "XML AdView adDismissed");
             }
             
             @Override
             public void adClicked() {
-                Log.i(MainActivity.TAG, "XML AdView adClicked");
+                Log.i(TAG, "XML AdView adClicked");
             }
         });
         bannerFromXml.loadAd();
@@ -197,50 +252,14 @@ public class DynamicActivity extends Activity {
         params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
         bannerFromCode.setLayoutParams(params);
         layout.addView(bannerFromCode, 0);
-        bannerFromCode.setListener(new IAdListener() {
-            
-            @Override
-            public void adShown() {
-                Log.i(MainActivity.TAG, "code AdView adShown");
-            }
-            
-            @Override
-            public void adReceived() {
-                Log.i(MainActivity.TAG, "code AdView adReceived");
-            }
-            
-            @Override
-            public void adFailed(Object error) {
-                Log.i(MainActivity.TAG, "code AdView adFailed: "+error);
-            }
-            
-            @Override
-            public void adDismissed() {
-                Log.i(MainActivity.TAG, "code AdView adDismissed");
-            }
-            
-            @Override
-            public void adClicked() {
-                Log.i(MainActivity.TAG, "code AdView adClicked");
-            }
-        });
+        bannerFromCode.setListener(new BannerFromCodeListener());
         bannerFromCode.loadAd();
     }
 
     private void createLeadBoltBanner(String adViewId) {
         leadBoltBanner = new Interstitial(this, AdNet.LeadBolt, adViewId);
-        leadBoltBanner.setListener(new DefaultAdListener() {
-            @Override
-            public void adReceived() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        leadBoltBanner.show();
-                    }
-                });
-            }
-        });
-        leadBoltBanner.loadAd();
+        leadBoltBanner.setListener(new BannerFromCodeListener());
+        leadBoltBanner.show(); // LeadBolt ad can show also without calling loadAd first.
     }
 
     public void showInterstitial(View view) {
@@ -282,7 +301,7 @@ public class DynamicActivity extends Activity {
 
             @Override
             public void adReceived() {
-                Log.i(MainActivity.TAG, "Interstitial adReceived");
+                Log.i(TAG, "Interstitial adReceived");
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -294,13 +313,13 @@ public class DynamicActivity extends Activity {
 
             @Override
             public void adFailed(final Object error) {
-                Log.i(MainActivity.TAG, "Interstitial adFailed");
+                Log.i(TAG, "Interstitial adFailed");
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         String msg = getString(R.string.interstitial_failed_msg_fmt, error);
                         Toast.makeText(DynamicActivity.this, msg, Toast.LENGTH_LONG).show();
-                        Log.w(MainActivity.TAG, msg);
+                        Log.w(TAG, msg);
                         interstitialChoice.clearCheck();
                         progress.setVisibility(View.INVISIBLE);
                         if(interstitial != null && interstitial.isReady()) {
@@ -312,7 +331,7 @@ public class DynamicActivity extends Activity {
 
             @Override
             public void adShown() {
-                Log.i(MainActivity.TAG, "Interstitial adShown");
+                Log.i(TAG, "Interstitial adShown");
                 // For AdNets that don't support adDismissed:
                 runOnUiThread(new Runnable() {
                     @Override
@@ -325,12 +344,12 @@ public class DynamicActivity extends Activity {
 
             @Override
             public void adClicked() {
-                Log.i(MainActivity.TAG, "Interstitial adClicked");
+                Log.i(TAG, "Interstitial adClicked");
             }
 
             @Override
             public void adDismissed() {
-                Log.i(MainActivity.TAG, "Interstitial adDismissed");
+                Log.i(TAG, "Interstitial adDismissed");
                 // For AdNets that don't support adShown:
                 runOnUiThread(new Runnable() {
                     @Override
@@ -341,7 +360,10 @@ public class DynamicActivity extends Activity {
                 });
             }
         });
-        progress.setVisibility(View.VISIBLE);
+        // Some ad networks don't support caching or caching notification, so isReady will always return true,
+        if(!interstitial.isReady()) { // in which case don't show the progress indicator.
+            progress.setVisibility(View.VISIBLE);
+        }
         interstitial.loadAd(subtype);
     }
     
@@ -351,6 +373,9 @@ public class DynamicActivity extends Activity {
             AdBoost.enableTestMode(myAdNetwork, MY_TEST_DEVICE_ID);
         }
         AdParams params = mediation.getParams(myAdNetwork);
+        if(interstitial != null) {
+            interstitial.destroy();
+        }
         interstitial = new Interstitial(this, myAdNetwork, params.interstitialId);
         Set<SubType> supported = interstitial.getSupportedTypes();
         interstitialChoice.clearCheck();
@@ -360,11 +385,38 @@ public class DynamicActivity extends Activity {
             SubType type = SubType.valueOf((String)button.getTag());
             button.setVisibility(supported.contains(type) ? View.VISIBLE : View.GONE);
         }
-        showInterstitialButton.setEnabled(false);
+        showInterstitialButton.setEnabled(interstitial.isReady()); // Is true if ad network doesn't support caching.
         if(leadBoltBanner != null) {
             leadBoltBanner.destroy();
         }
         showBannerFromXml(myAdNetwork, params.adViewId);
         createBannerProgrammatically(myAdNetwork, params.adViewId);
+    }
+
+    private static class BannerFromCodeListener implements IAdListener {
+        @Override
+        public void adShown() {
+            Log.i(TAG, "code AdView adShown");
+        }
+    
+        @Override
+        public void adReceived() {
+            Log.i(TAG, "code AdView adReceived");
+        }
+    
+        @Override
+        public void adFailed(Object error) {
+            Log.i(TAG, "code AdView adFailed: "+error);
+        }
+    
+        @Override
+        public void adDismissed() {
+            Log.i(TAG, "code AdView adDismissed");
+        }
+    
+        @Override
+        public void adClicked() {
+            Log.i(TAG, "code AdView adClicked");
+        }
     }
 }

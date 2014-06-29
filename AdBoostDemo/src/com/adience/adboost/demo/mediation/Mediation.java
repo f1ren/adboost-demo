@@ -59,6 +59,7 @@ public class Mediation {
                 break;
 
             case LeadBolt:
+                AdBoost.initAdNet(AdNet.LeadBolt, "com.vhypskbuxnxbupnm");
                 adnetParams = new AdParams(activity.getString(R.string.leadboltBannerId), activity.getString(R.string.leadboltInterstitialId));
                 adnetMediation.put(AdNet.LeadBolt, adnetParams);
                 break;
@@ -89,6 +90,11 @@ public class Mediation {
                 adnetParams = new AdParams(activity.getString(R.string.mdotmAppId), activity.getString(R.string.mdotmAppId));
                 adnetMediation.put(AdNet.MdotM, adnetParams);
                 break;
+                
+            case Appia:
+                AdBoost.initAdNet(AdNet.Appia, activity, activity.getResources().getInteger(R.integer.appiaSiteId));
+                adnetParams = new AdParams(activity.getString(R.string.appiaBannerId), activity.getString(R.string.appiaInterstitialId));
+                adnetMediation.put(AdNet.Appia, adnetParams);
             }
         }
     }
