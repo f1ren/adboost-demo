@@ -32,4 +32,8 @@
     <string name="chartboostAppSignature"></string>
     
     <string name="mdotmAppId"></string>
+    
+    <integer name="appiaSiteId"></integer>
+    <string name="appiaBannerId"></string>
+    <string name="appiaInterstitialId"></string>
 </resources>
