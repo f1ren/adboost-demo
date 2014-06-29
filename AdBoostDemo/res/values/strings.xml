@@ -27,5 +27,6 @@
     <string name="interstitial_loading">Interstitial isn\'t loaded yet. Try again in a few seconds.</string>
     <string name="reloading_interstitial">Trying to reload interstitial.</string>
     <string name="first_load_interstitial">First load an interstitial.</string>
-
+    <string name="no_ad_networks">Please provide at least one ad network in MY_AD_NETWORKS.</string>
+    <string name="exit">Exit</string>
 </resources>
