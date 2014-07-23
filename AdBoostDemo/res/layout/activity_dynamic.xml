@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:adboost="http://www.adience.com/adboost/schema"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="fill"
@@ -27,42 +28,42 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadAutomatic"
+                android:onClick="loadInterstitial"
                 android:tag="AUTOMATIC"
                 android:text="@string/load_interstitial_auto" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadOverlay"
+                android:onClick="loadInterstitial"
                 android:tag="OVERLAY"
                 android:text="@string/load_interstitial_overlay" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadApps"
+                android:onClick="loadInterstitial"
                 android:tag="APPS"
                 android:text="@string/load_interstitial_apps" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadLandingPage"
+                android:onClick="loadInterstitial"
                 android:tag="LANDING_PAGE"
                 android:text="@string/load_interstitial_landingpage" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadFullPage"
+                android:onClick="loadInterstitial"
                 android:tag="FULL_PAGE"
                 android:text="@string/load_interstitial_fullpage" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="loadVideo"
+                android:onClick="loadInterstitial"
                 android:tag="VIDEO"
                 android:text="@string/load_interstitial_video" />
         </RadioGroup>
@@ -97,7 +98,8 @@
     <com.adience.adboost.AdView
         android:id="@+id/adView"
         android:layout_width="match_parent"
-        android:layout_height="50dip"
-        android:layout_gravity="bottom|center_horizontal" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        adboost:adSize="320x50" />
 
 </LinearLayout>
