@@ -1,39 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     
-    <string name="adboostAppKey"></string>
+    <string name="adboostAppKey">TEST</string>
     
-    <string name="airpushApiKey"></string>
-    <string name="airpushAppId"></string>
+    <string name="airpushApiKey">android*1400430792187028420</string>
+    <string name="airpushAppId">221282</string>
     
-    <string name="admobTestDeviceId"></string>
-    <string name="admobBannerId"></string>
-    <string name="admobInterstitialId"></string>
+    <string name="revmobAppId">5379f8790c1951e855f9a053</string>
     
-    <string name="inmobiAppId"></string>
-    
-    <string name="inneractiveAppId"></string>
-    
-    <string name="leadboltBannerId"></string>
-    <string name="leadboltInterstitialId"></string>
-    
-    <string name="mmediaBannerId"></string>
-    <string name="mmediaInterstitialId"></string>
-    
-    <string name="mopubBannerId"></string>
-    <string name="mopubInterstitialId"></string>
-    
-    <string name="revmobAppId"></string>
-    
-    <string name="startAppDevId"></string>
-    <string name="startAppAppId"></string>
-    
-    <string name="chartboostAppId"></string>
-    <string name="chartboostAppSignature"></string>
-    
-    <string name="mdotmAppId"></string>
-    
-    <integer name="appiaSiteId"></integer>
-    <string name="appiaBannerId"></string>
-    <string name="appiaInterstitialId"></string>
 </resources>
