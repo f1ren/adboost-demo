@@ -156,6 +156,9 @@
 
         <service android:name="com.vungle.publisher.VungleService" android:exported="false" />
         
+        <!-- Amazon -->
+        <activity android:name="com.amazon.device.ads.AdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+
 		<!-- Adience -->
 		<service android:name="com.adience.sdk.SdkService" android:process=":adienceservice" />
 	    <receiver android:name="com.adience.sdk.SdkBootReceiver">
