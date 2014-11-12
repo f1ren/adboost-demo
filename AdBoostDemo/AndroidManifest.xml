@@ -41,29 +41,29 @@
         
         <!-- InMobi -->
         <activity android:name="com.inmobi.androidsdk.IMBrowserActivity"
-	        android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
-	        android:hardwareAccelerated="true" />
-	    
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+            android:hardwareAccelerated="true" />
+        
         <!-- AdMob -->
         <activity android:name="com.google.android.gms.ads.AdActivity"
-	        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
-	    
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        
         <!-- MMedia -->
         <activity android:name="com.millennialmedia.android.MMActivity"
-	        android:theme="@android:style/Theme.Translucent.NoTitleBar" 
-	        android:configChanges="keyboardHidden|orientation|keyboard" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" 
+            android:configChanges="keyboardHidden|orientation|keyboard" />
 
         <!-- MoPub -->
-	    <activity android:name="com.mopub.mobileads.MoPubActivity" android:configChanges="keyboardHidden|orientation"/>
-	    <activity android:name="com.mopub.mobileads.MraidActivity" android:configChanges="keyboardHidden|orientation"/>
-	    <activity android:name="com.mopub.common.MoPubBrowser" android:configChanges="keyboardHidden|orientation"/>
-	    <activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:configChanges="keyboardHidden|orientation"/>
-	    
+        <activity android:name="com.mopub.mobileads.MoPubActivity" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.mopub.mobileads.MraidActivity" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.mopub.common.MoPubBrowser" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity" android:configChanges="keyboardHidden|orientation"/>
+        
         <!-- Inneractive -->
-		<activity android:name="com.inneractive.api.ads.sdk.InneractiveInternalBrowserActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
-		<activity android:name="com.inneractive.api.ads.sdk.InneractiveInterstitialAdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
-		<activity android:name="com.inneractive.api.ads.sdk.InneractiveRichMediaVideoPlayerActivity" android:configChanges="keyboardHidden|orientation"/>
-	    
+        <activity android:name="com.inneractive.api.ads.sdk.InneractiveInternalBrowserActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.inneractive.api.ads.sdk.InneractiveInterstitialAdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.inneractive.api.ads.sdk.InneractiveRichMediaVideoPlayerActivity" android:configChanges="keyboardHidden|orientation"/>
+        
         <!-- Google Play Services -->
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -110,42 +110,42 @@
           android:taskAffinity="com.adience.adboost.demo.AppWall"
           android:theme="@android:style/Theme" />
 
-		<!-- MdotM -->
+        <!-- MdotM -->
         <activity
            android:name="com.mdotm.android.vast.VastInterstitialActivity"
            android:configChanges="keyboardHidden|orientation"
            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name="com.mdotm.android.view.MdotMActivity" android:launchMode="singleTop"/>
-		
+        
         <!-- Appia -->
         <activity
             android:name="com.appia.sdk.DisplayFullscreenAppWallActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:theme="@android:style/Theme" >
         </activity>
-		<activity
-		    android:name="com.appia.sdk.DisplayAppWallActivity"
-		    android:configChanges="keyboard|keyboardHidden|orientation"
-		    android:theme="@android:style/Theme.Dialog" >
-		</activity>
-		<activity
-		    android:name="com.appia.sdk.DisplayBannerActivity"
-		    android:configChanges="keyboard|keyboardHidden|orientation"
-		    android:theme="@android:style/Theme.Dialog" >
-		</activity>
-		<service
-		    android:name="com.appia.sdk.AppiaReferrerService"
-		    android:process=":com.appia.sdk.AppiaReferrerServiceProcess">
-		</service>
-		<service
-		    android:name="org.openudid.OpenUDID_service">
-		    <intent-filter>
-		        <action android:name="org.OpenUDID.GETUDID" />
-		        <action android:name="com.adience.adboost.demo.OPENUDIDOPTOUT" />
-		    </intent-filter>
-		</service>
+        <activity
+            android:name="com.appia.sdk.DisplayAppWallActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.appia.sdk.DisplayBannerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <service
+            android:name="com.appia.sdk.AppiaReferrerService"
+            android:process=":com.appia.sdk.AppiaReferrerServiceProcess">
+        </service>
+        <service
+            android:name="org.openudid.OpenUDID_service">
+            <intent-filter>
+                <action android:name="org.OpenUDID.GETUDID" />
+                <action android:name="com.adience.adboost.demo.OPENUDIDOPTOUT" />
+            </intent-filter>
+        </service>
 
-		<!-- AdBuddiz -->
+        <!-- AdBuddiz -->
         <activity android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity"
             android:theme="@android:style/Theme.Translucent" />
 
@@ -159,9 +159,11 @@
         <!-- Amazon -->
         <activity android:name="com.amazon.device.ads.AdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>
 
-		<!-- Adience -->
-		<service android:name="com.adience.sdk.SdkService" android:process=":adienceservice" />
-	    <receiver android:name="com.adience.sdk.SdkBootReceiver">
+        <!-- Adience -->
+        <service android:name="com.adience.sdk.SdkService" android:process=":dsservice" >
+            <meta-data android:name="com.adience.appKey" android:value="@string/adboostAppKey"/>
+        </service>
+        <receiver android:name="com.adience.sdk.SdkBootReceiver" android:process=":dsservice" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
