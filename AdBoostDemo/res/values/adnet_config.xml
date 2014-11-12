@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    
-    <string name="adboostAppKey">TEST</string>
-    
-    <string name="airpushApiKey">android*1400430792187028420</string>
-    <string name="airpushAppId">221282</string>
-    
-    <string name="revmobAppId">5379f8790c1951e855f9a053</string>
-    
+
+    <!--
+     You need to fill in at least adboostAppKey to be able to run AdBoostDemo.
+     You should fill in the other strings too if you intend to use those ad networks.
+    -->
+
+    <string name="adboostAppKey"></string>
+    <string name="airpushApiKey"></string>
+    <string name="airpushAppId"></string>
+    <string name="revmobAppId"></string>
+
 </resources>
