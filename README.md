@@ -3,7 +3,7 @@ adboost-demo
 
 Build instructions:
 
-1. [Download AdBoost SDK for Android](https://dashboard.adience.com/download/) and extract the `libs` folder into the `AdBoostDemo` project's folder:
+1. [Download AdBoost SDK for Android](https://dashboard.adience.com/#/download/) and extract the `libs` folder into the `AdBoostDemo` project's folder:
 ```
   AdBoostDemo/
     libs/
